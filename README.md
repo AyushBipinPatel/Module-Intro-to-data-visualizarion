@@ -1,6 +1,6 @@
 # Module-Intro-to-data-visualizarion
 
-This repositiry is to maintain files for the Module on Introduction to Data Visualizations using R.
+This repository is to maintain files for the Module on Introduction to Data Visualizations using R.
 
 ## Expeced course Outline
 
