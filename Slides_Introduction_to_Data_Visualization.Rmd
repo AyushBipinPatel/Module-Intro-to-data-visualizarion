@@ -15,6 +15,12 @@ output:
 
 name: Module Details
 
+```{r include=FALSE}
+library(palmerpenguins)
+library(tidyverse)
+library(kableExtra)
+```
+
 class: center, middle
 
 # Module Details
@@ -123,11 +129,166 @@ __`pivot_longer()` and `pivot_wider()`__
 .pull-right[
 
 <iframe src="https://giphy.com/embed/7K3p2z8Hh9QOI" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dog-what-confused-7K3p2z8Hh9QOI">via GIPHY</a></p>
+
+<img src="https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/man/figures/lter_penguins.png", width=50%, align = "center">
 ]
 
 ---
 
 name: using filter funciton
+
+class: top,left
+
+# Subsetting Observations or Rows
+
+`filter()` function allows us to subset data based on desired conditionality.
+
+
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", align="center">
+
+
+---
+
+name: example 1 for filter
+
+class: top
+
+.center[From the `Plamer Penguins` filter only those penguins that are more than 3000 grams in body mass.]
+
+
+```{r ex_filter, results='hide'}
+filter(penguins,body_mass_g > 3000) %>%  #<<
+  knitr::kable()%>%
+  kableExtra::kable_styling()%>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+
+```{r ref.label = 'ex_filter', echo=FALSE,out.height=6}
+
+```
+
+
+---
+
+name: example 2 for filter
+
+class: top
+
+.center[From the `Plamer Penguins` filter only those penguins that are __Chinstrap__ and __more than 3000 grams in body mass__.]
+
+
+```{r ex_filter2, results='hide'}
+filter(penguins, #<<
+       body_mass_g > 3000 & species == "Chinstrap") %>%  #<<
+  knitr::kable()%>%
+  kableExtra::kable_styling()%>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+
+```{r ref.label = 'ex_filter2', echo=FALSE,out.height=6}
+
+```
+
+
+---
+
+name: formative assessment filter function
+
+class: top
+
+#.center[Your turn]
+
+write a code to filter only those penguins that are __either "Chinstrap" or have a "flipper length" more than 190mm__
+
+
+colnames that might be useful:  
+  `species`  
+  `flipper_length_mm`
+  
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", width=75%, align="center">
+
+---
+
+name: Create new columns 
+
+class: top
+
+#.center[Create new columns in the data]
+
+.center[using `mutate()` funtion]
+
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center">
+
+---
+
+name: example 1 mutate
+
+class: top
+
+.center[Create a new column by the name of __`bill_length_cm`__ using the data from column __`bill_length_mm`__]
+
+10mm = 1cm
+
+```{r ex1_mutate, results='hide'}
+mutate(penguins, bill_length_cm = bill_length_mm/10) %>% #<<
+  knitr::kable()%>%
+  kableExtra::kable_styling()%>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+```{r ref.label='ex1_mutate', echo=FALSE}
+
+```
+
+---
+
+name: example 2 mutate
+
+class: top
+
+.center[Multiple new columns can be created using the `mutate()`  
+creating new `bill_depth_cm` column]
+
+```{r ex2_mutate, results='hide'}
+mutate(penguins, bill_length_cm = bill_length_mm/10, #<<
+        bill_depth_cm = bill_depth_mm/10) %>% #<<
+  knitr::kable()%>%
+  kableExtra::kable_styling()%>%
+  scroll_box(width = "100%", height = "400px")
+```
+
+```{r ref.label='ex2_mutate', echo=FALSE}
+
+```
+
+
+---
+
+name: formative assessment mutate funciton
+
+class: top
+
+#.center[Your turn]
+
+write a code to create a new column __body_mass_kg__ using the `mutate()`
+
+
+colnames that might be useful:  
+  `body_mass_g`
+  
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center">
+
+
+
+
+
+
+
+
+
+
 
 
 
