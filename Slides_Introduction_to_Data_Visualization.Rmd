@@ -1,0 +1,141 @@
+---
+title: "Introduction to Data Visualization"
+subtitle: "Using the Census Village Directory Data"
+author: "Ayush Patel"
+institute: "RStudio, PBC"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+name: Module Details
+
+class: center, middle
+
+# Module Details
+
+The details of the modules can be found [here](https://github.com/AyushBipinPatel/Module-Intro-to-data-visualizarion). 
+
+---
+
+name: Instructor Introduction
+
+## Ayush Patel  
+
+
+GitHub: [https://github.com/AyushBipinPatel](https://github.com/AyushBipinPatel)   
+Email: ayush.ap58@gmail.com   
+Website: [https://ayushpatel.netlify.app/](https://ayushpatel.netlify.app/)
+
+
+---
+
+name: Learning Objectives
+
+class: center
+
+# What will you get out of this?  
+  
+
+---
+
+class: center
+
+# Setup
+
+--
+
+.left[create a project]  
+
+--
+
+.left[Open a new R markdown document]
+
+--
+
+.left[install the following libraies]  
+
+.left[tidyverse, ggiraph, gganimate, palmerpenguins]
+
+.left[use the command `install.packages()` to install the packages/libraries.]
+
+
+--
+
+
+.left[load libraries]  
+
+.left[use the `library()` command to load the follwing libraries in your environment]  
+
+.left[tidyverse, palmerpenguins]
+
+
+
+
+???
+
+Take the learners through each step
+
+---
+
+name: begin lecture 1
+
+class: center,middle
+
+# Refresher on the basics of data wrangling  
+
+using the {dplyr}
+
+<img src="https://i.redd.it/w2km14a81yy41.png", width = 50%,align = "center">  
+
+image source: reddit
+
+---
+
+name: Why wrangling and basic concepts
+
+#.center.middle[Do I need to know this?]  
+
+.pull-left[
+Data is not always clean  
+
+Even if it is clean, Its never how we want it to be
+
+Therefore we need to wrangle, transform or reshape it to a form that is useful to us.
+
+_How to do that??_  
+
+__`filter()`__  
+
+__`mutate()`__  
+
+__`group_by()` and `summarise()`__
+
+__`pivot_longer()` and `pivot_wider()`__
+
+]  
+
+.pull-right[
+
+<iframe src="https://giphy.com/embed/7K3p2z8Hh9QOI" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dog-what-confused-7K3p2z8Hh9QOI">via GIPHY</a></p>
+]
+
+---
+
+name: using filter funciton
+
+
+
+
+
+
+
+
+
+
+
