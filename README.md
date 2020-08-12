@@ -50,3 +50,7 @@ As an example I will be using the Census Vilage Directory for the state of Gujar
 
 The definitions and concepts used in the data are provided in the document called [Concepts and Definitions Used In Village Directory (VD) And Town Directory (TD) of District Census Hand Book](https://censusindia.gov.in/2011census/dchb/DCHB%202011-Concepts%20&%20Definitions%20Village%20and%20Town%20Directory.pdf).
 
+
+## Lecture Slides
+
+The [Lecture Slides](/Slides_Introduction_to_Data_Visualization.html).
