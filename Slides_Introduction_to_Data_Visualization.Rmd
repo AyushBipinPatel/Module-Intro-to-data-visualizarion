@@ -2,7 +2,6 @@
 title: "Introduction to Data Visualization"
 subtitle: "Using the Census Village Directory Data"
 author: "Ayush Patel"
-institute: "RStudio, PBC"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
@@ -272,7 +271,7 @@ class: top
 
 #.center[Your turn]
 
-write a code to create a new column __body_mass_kg__ using the `mutate()`
+write a code to create a new column __body_mass_kg__ using the `mutate()`.
 
 
 colnames that might be useful:  
@@ -280,12 +279,37 @@ colnames that might be useful:
   
 <img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center">
 
+---
 
+name: summarise function
 
+class: top, middle
 
+#.center[Summarise Functions]
 
+```
+These apply summary functions to columns to create a new table  
+of summary statistics. Summary functions take vectors as  
+input and return one value.
+``` 
 
+.right[from dplyr cheatsheet]
 
+---
+
+name: example 1 summarise function
+
+.center[What is the avergae flipper length and body mass of the penguins?]
+
+```{r}
+summarise(
+    penguins,
+    average_flipper_length = mean(flipper_length_mm,
+                                  na.rm = T),
+    avergae_body_mass_g = mean(body_mass_g,
+                               na.rm = T) 
+  )
+```
 
 
 

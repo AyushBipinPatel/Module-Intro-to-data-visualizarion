@@ -4,7 +4,7 @@
     <title>Introduction to Data Visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ayush Patel" />
-    <meta name="date" content="2020-08-11" />
+    <meta name="date" content="2020-08-12" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -16,8 +16,7 @@ class: center, middle, inverse, title-slide
 # Introduction to Data Visualization
 ## Using the Census Village Directory Data
 ### Ayush Patel
-### RStudio, PBC
-### 2020-08-11
+### 2020-08-12
 
 ---
 
@@ -12218,13 +12217,53 @@ class: top
 
 #.center[Your turn]
 
-write a code to create a new column __body_mass_kg__ using the `mutate()`
+write a code to create a new column __body_mass_kg__ using the `mutate()`.
 
 
 colnames that might be useful:  
   `body_mass_g`
   
 &lt;img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center"&gt;
+
+---
+
+name: summarise function
+
+class: top, middle
+
+#.center[Summarise Functions]
+
+```
+These apply summary functions to columns to create a new table  
+of summary statistics. Summary functions take vectors as  
+input and return one value.
+``` 
+
+.right[from dplyr cheatsheet]
+
+---
+
+name: example 1 summarise function
+
+.center[What is the avergae flipper length and body mass of the penguins?]
+
+
+```r
+summarise(
+    penguins,
+    average_flipper_length = mean(flipper_length_mm,
+                                  na.rm = T),
+    avergae_body_mass_g = mean(body_mass_g,
+                               na.rm = T) 
+  )
+```
+
+```
+## # A tibble: 1 x 2
+##   average_flipper_length avergae_body_mass_g
+##                    &lt;dbl&gt;               &lt;dbl&gt;
+## 1                   201.               4202.
+```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
