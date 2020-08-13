@@ -96,9 +96,9 @@ class: center,middle
 
 using the {dplyr}
 
-<img src="https://i.redd.it/w2km14a81yy41.png", width = 50%,align = "center">  
+<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/dplyr.png", width = 50%,align = "center">  
 
-image source: reddit
+image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)
 
 ---
 
@@ -310,6 +310,117 @@ summarise(
                                na.rm = T) 
   )
 ```
+
+---
+
+name: formative assessment
+
+class: top,middle
+
+.center[Write a code to obtain the __mean bill depth and median bill depth__.]
+
+Columns that might be useful:  
+  
+  `bill_depth_mm`
+  
+Functions that might be useful:  
+
+`mean()`  
+
+`median()`
+
+---
+
+name: cover slide pipe operator
+
+class: top,middle
+
+#.center[The pipe operator ` %>% `]
+
+.center[<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/pipe.png", width=50%, align="center">]
+
+.center[image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)]
+
+---
+
+name: Explanation of how pipes work
+
+class: top,center
+
+--
+
+.left[_You want to do this:_]
+
+__f(g(h(x)))__ == __z__
+
+_f_, _g_, and _h_ are functions.
+
+_x_ is the object on which you want to use said functions
+
+_z_ is the what we get from f(g(h(x)))
+
+--
+
+.left[_the `%>%` come in_]
+
+```
+x %>% 
+  h() %>% 
+    g() %>% 
+      f()
+```
+
+--
+
+.left[_Why use the ` %>% `_]
+
+Code Readability
+
+More Control on Intermediate Steps
+
+Less Intermediate Objects
+
+---
+
+name: comaprision between using pipe and not using pipe
+
+class: top
+
+#.center[__A Comparison__]
+
+.center[From the pensuins data, for all the Gentoo Penguins I want to classify penguins as fluffy and count the number of gentoo penguins that are fluffy]
+
+.left[With ` %>% `].right[_Without_ ` %>% `]
+.pull-left[
+```{r}
+penguins %>% 
+  filter(species == "Gentoo") %>% 
+  mutate(
+    is_fluffy = if_else(body_mass_g>3500,1,0)
+  ) %>% 
+  summarise(
+    Number_of_fluffy_Gentoos = sum(is_fluffy,na.rm = T)
+  )
+```
+
+]
+.pull-right[
+```{r}
+filter(penguins,
+       species == "Gentoo") ->gentoo_penguins
+
+summarise(mutate(gentoo_penguins,
+       is_fluffy = 
+         if_else(body_mass_g>3500,1,0)),
+       Number_of_fluffy_Gentoos = 
+         sum(is_fluffy,na.rm = T))
+```
+
+]
+
+---
+
+
 
 
 

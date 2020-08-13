@@ -4,7 +4,7 @@
     <title>Introduction to Data Visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ayush Patel" />
-    <meta name="date" content="2020-08-12" />
+    <meta name="date" content="2020-08-13" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # Introduction to Data Visualization
 ## Using the Census Village Directory Data
 ### Ayush Patel
-### 2020-08-12
+### 2020-08-13
 
 ---
 
@@ -101,9 +101,9 @@ class: center,middle
 
 using the {dplyr}
 
-&lt;img src="https://i.redd.it/w2km14a81yy41.png", width = 50%,align = "center"&gt;  
+&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/dplyr.png", width = 50%,align = "center"&gt;  
 
-image source: reddit
+image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)
 
 ---
 
@@ -12264,6 +12264,131 @@ summarise(
 ##                    &lt;dbl&gt;               &lt;dbl&gt;
 ## 1                   201.               4202.
 ```
+
+---
+
+name: formative assessment
+
+class: top,middle
+
+.center[Write a code to obtain the __mean bill depth and median bill depth__.]
+
+Columns that might be useful:  
+  
+  `bill_depth_mm`
+  
+Functions that might be useful:  
+
+`mean()`  
+
+`median()`
+
+---
+
+name: cover slide pipe operator
+
+class: top,middle
+
+#.center[The pipe operator ` %&gt;% `]
+
+.center[&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/pipe.png", width=50%, align="center"&gt;]
+
+.center[image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)]
+
+---
+
+name: Explanation of how pipes work
+
+class: top,center
+
+--
+
+.left[_You want to do this:_]
+
+__f(g(h(x)))__ == __z__
+
+_f_, _g_, and _h_ are functions.
+
+_x_ is the object on which you want to use said functions
+
+_z_ is the what we get from f(g(h(x)))
+
+--
+
+.left[_the `%&gt;%` come in_]
+
+```
+x %&gt;% 
+  h() %&gt;% 
+    g() %&gt;% 
+      f()
+```
+
+--
+
+.left[_Why use the ` %&gt;% `_]
+
+Code Readability
+
+More Control on Intermediate Steps
+
+Less Intermediate Objects
+
+---
+
+name: comaprision between using pipe and not using pipe
+
+class: top
+
+#.center[__A Comparison__]
+
+.center[From the pensuins data, for all the Gentoo Penguins I want to classify penguins as fluffy and count the number of gentoo penguins that are fluffy]
+
+.left[With ` %&gt;% `].right[_Without_ ` %&gt;% `]
+.pull-left[
+
+```r
+penguins %&gt;% 
+  filter(species == "Gentoo") %&gt;% 
+  mutate(
+    is_fluffy = if_else(body_mass_g&gt;3500,1,0)
+  ) %&gt;% 
+  summarise(
+    Number_of_fluffy_Gentoos = sum(is_fluffy,na.rm = T)
+  )
+```
+
+```
+## # A tibble: 1 x 1
+##   Number_of_fluffy_Gentoos
+##                      &lt;dbl&gt;
+## 1                      123
+```
+
+]
+.pull-right[
+
+```r
+filter(penguins,
+       species == "Gentoo") -&gt;gentoo_penguins
+
+summarise(mutate(gentoo_penguins,
+       is_fluffy = 
+         if_else(body_mass_g&gt;3500,1,0)),
+       Number_of_fluffy_Gentoos = 
+         sum(is_fluffy,na.rm = T))
+```
+
+```
+## # A tibble: 1 x 1
+##   Number_of_fluffy_Gentoos
+##                      &lt;dbl&gt;
+## 1                      123
+```
+
+]
+
+---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
