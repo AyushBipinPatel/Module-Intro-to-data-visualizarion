@@ -511,7 +511,10 @@ name: pivot longer demo
 penguins %>%  
   pivot_longer(cols = bill_length_mm : flipper_length_mm,
                names_to = "body_feature",
-               values_to = "measured_value_mm")
+               values_to = "measured_value_mm")%>% 
+               knitr::kable()%>%
+               kableExtra::kable_styling()%>%
+               scroll_box(width = "100%", height = "400px")
 
 ```
 
