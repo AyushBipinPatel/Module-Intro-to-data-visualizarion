@@ -4,7 +4,7 @@
     <title>Introduction to Data Visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ayush Patel" />
-    <meta name="date" content="2020-10-03" />
+    <meta name="date" content="2020-10-04" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <script src="libs/kePrint-0.0.1/kePrint.js"></script>
@@ -17,46 +17,56 @@ class: center, middle, inverse, title-slide
 # Introduction to Data Visualization
 ## Using the Census Village Directory Data
 ### Ayush Patel
-### 2020-10-03
+### 2020-10-04
 
 ---
 
 
 name: Module Details
-
-
-
 class: center, middle
+background-image: url(https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80)
+background-size: cover
+
+
 
 # Module Details
 
-The details of the modules can be found [here](https://github.com/AyushBipinPatel/Module-Intro-to-data-visualizarion). 
+The details of the modules can be found [here](https://ayushbipinpatel.github.io/Module-Intro-to-data-visualizarion/). 
 
 ---
 
 name: Instructor Introduction
+background-image: url(https://images.unsplash.com/photo-1531592937781-344ad608fabf?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80)
+background-size: cover
 
-## Ayush Patel  
+class: middle
 
-
+# .center[Ayush Patel]
+.center[
 GitHub: [https://github.com/AyushBipinPatel](https://github.com/AyushBipinPatel)   
 Email: ayush.ap58@gmail.com   
 Website: [https://ayushpatel.netlify.app/](https://ayushpatel.netlify.app/)
+]
 
 
 ---
 
 name: Learning Objectives
+background-image: url(https://images.unsplash.com/photo-1584143257261-e16224e2c9df?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80)
+background-size: cover
+class: center,middle
 
-class: center
-
-# What will you get out of this?  
-  
-
+# .center[What will you get out of this?  ]
+.left[
+* The essential functions for data manipulation
+* Using the ggplot package to make various kinds of charts
+* Basics of Rmarkdown and reproducible research
+]
 ---
 
 class: center
-
+background-image: url(https://images.unsplash.com/photo-1524230572899-a752b3835840?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=676&amp;q=80)
+background-size: cover
 # Setup
 
 --
@@ -12453,9 +12463,7 @@ _Po -The Panda_: Woooww!!! Show meee..
 
 name: example 2 group_by
 
-
 How to get `species` and `sex` specific average body mass of the penguins?
-
 
 
 ```r
@@ -12486,7 +12494,6 @@ penguins %&gt;%
 ## 8 Gentoo    &lt;NA&gt;           4588.
 ```
 
-
 ---
 
 name: intro pivots
@@ -12495,8 +12502,149 @@ class: top,center
 
 # Pivot
 
-&lt;img src="https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/PivotPicture.jpg", width=75%&gt;
+&lt;img src="https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/PivotPicture.jpg", width=95%&gt;
 
+
+.left[Prakhar is a hypothetical person ;)]
+---
+
+name: pivot longer demo
+
+# Example for `pivot_longer()`
+
+
+```r
+penguins %&gt;%  
+  pivot_longer(cols = bill_length_mm : flipper_length_mm,
+               names_to = "body_feature",
+               values_to = "measured_value_mm")
+```
+
+```
+## # A tibble: 1,032 x 7
+##    species island body_mass_g sex    year body_feature
+##    &lt;fct&gt;   &lt;fct&gt;        &lt;int&gt; &lt;fct&gt; &lt;int&gt; &lt;chr&gt;       
+##  1 Adelie  Torge~        3750 male   2007 bill_length~
+##  2 Adelie  Torge~        3750 male   2007 bill_depth_~
+##  3 Adelie  Torge~        3750 male   2007 flipper_len~
+##  4 Adelie  Torge~        3800 fema~  2007 bill_length~
+##  5 Adelie  Torge~        3800 fema~  2007 bill_depth_~
+##  6 Adelie  Torge~        3800 fema~  2007 flipper_len~
+##  7 Adelie  Torge~        3250 fema~  2007 bill_length~
+##  8 Adelie  Torge~        3250 fema~  2007 bill_depth_~
+##  9 Adelie  Torge~        3250 fema~  2007 flipper_len~
+## 10 Adelie  Torge~          NA &lt;NA&gt;   2007 bill_length~
+## # ... with 1,022 more rows, and 1 more variable:
+## #   measured_value_mm &lt;dbl&gt;
+```
+
+---
+
+name: example Pivot Longer    
+class: top,center
+
+# Your Turn
+
+Use the `peguins` data and convert it into a _long_ data frame. Utilize the columns related to bill measurements and change it into a single column.
+
+.left[Columns names that may be useful]
+
+* .left[bill_length_mm]
+* .left[bill_depth_mm]
+
+.left[Name the new columns `bill_feature`(contains bill depth or length) and `bill_measurement`(contains value)]
+
+---
+
+name: demo pivot_wider
+
+class: top,center
+
+# Example for `pivot_wider()`
+
+.left[Consider the following data]
+
+
+
+.left[
+
+```r
+scores
+```
+
+```
+## # A tibble: 6 x 3
+##   name    Subject     score
+##   &lt;chr&gt;   &lt;chr&gt;       &lt;dbl&gt;
+## 1 Ayush   Mathematics    98
+## 2 Ayush   Science        80
+## 3 Ayush   C++            55
+## 4 Prakhar Mathematics    65
+## 5 Prakhar Science        50
+## 6 Prakhar C++             0
+```
+]
+
+.left[We want it in the following format]
+
+.left[
+name  | Mathematics  | Science  | C++
+------|--------------|----------|-----
+
+]
+
+---
+
+name: demo continued pivot_wider
+
+class: top,center
+
+# Example for `pivot_wider()`
+
+.left[
+
+```r
+scores %&gt;% 
+  pivot_wider(names_from = Subject, values_from = score)
+```
+
+```
+## # A tibble: 2 x 4
+##   name    Mathematics Science `C++`
+##   &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;
+## 1 Ayush            98      80    55
+## 2 Prakhar          65      50     0
+```
+
+]
+
+---
+
+name: example pivot wider
+
+# .center[Your Turn]
+
+copy the code to your file and run it, this will create the data for you to use.
+
+
+```r
+tibble(
+  name = rep(c(rep(c("Ayush"),3),rep(c("Prakhar"),3)),2),
+  Subject = rep(rep(c("Mathematics","Science","C++"),2),2),
+  score = c(98,80,55,65,50,0,65,50,0,98,80,55),
+  year = c(rep("2009-2010",6),rep("2010-2011",6))
+) -&gt; scores
+```
+
+Use the `pivot_wider()` to expand the data from the `year` column.
+
+---
+
+name: refresher is on dplyr is completed
+class: center,top
+background-image: url(https://images.unsplash.com/photo-1582782657709-a4a0fd0a767e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80)
+background-size: cover
+# Refresher on dplyr is completed
 
 ---
     </textarea>

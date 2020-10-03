@@ -2,7 +2,7 @@
 
 This repository is to maintain files for the Module on Introduction to Data Visualizations using R.
 
-## Expeced course Outline
+## Expected course Outline
 
 The Module is designed keeping in mind learners who are from research background (pursuing graduate studies or higher) and are familiar with the basics of R.
 
@@ -21,13 +21,12 @@ Learners are expected to know basic statistics (summary statistics and correlati
 
 
 The Module is divided in 4 parts. These 4 parts will be covered in 8 hours.
-	
-	__Part 1: Refresher on the Basics of Data Manipulation. (1 hour)__
+
+ __Part 1: Refresher on the Basics of Data Manipulation. (1 hour)__
 
 This will include essential functions from tidyverse packages that are used widely and iteratively to reshape the data in required form to create a desired visualization. This part is aimed to get all learner to a basic minimum plane where they can reshape and manipulate the data as required.
 	
-	
-	__Part 2: Grammar of Graphics (3 hours)__
+ __Part 2: Grammar of Graphics (3 hours)__
 
 This part will introduce learners to grammar of graphics. Expose the learners to various kind of plots. This part is aimed to develop the intuition of learners to think of creating graphics layer by layer. This part will also include good practices in data visualizations and warn about common pitfalls that can lead to misleading data visualizations.
   
