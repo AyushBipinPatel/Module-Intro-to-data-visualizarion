@@ -607,4 +607,3 @@ background-size: cover
 # Refresher on dplyr is completed
 
 ---
-
