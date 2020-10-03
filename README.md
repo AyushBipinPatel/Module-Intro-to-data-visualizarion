@@ -4,7 +4,7 @@ This repository is to maintain files for the Module on Introduction to Data Visu
 
 ## Expeced course Outline
 
-The Module is designed keeping in mind learners who are from research background (pursuing gradyate studies or higher) and are familiar with the basics of R.
+The Module is designed keeping in mind learners who are from research background (pursuing graduate studies or higher) and are familiar with the basics of R.
 
 ### Introduction
 
@@ -46,7 +46,7 @@ Introduction to Rmarkdown as a tool for reproducible analysis and collaboration.
 
 The primary focus will be on the data set from census that provides details of public goods at village level. This is called [Census Village Directory](https://censusindia.gov.in/2011census/dchb/DCHB.html). These are available state wise on the census website.
 
-As an example I will be using the Census Vilage Directory for the state of Gujarat. The file downloaded from the census website is stored in the `Raw data` folder. I have written a small script `cleandata.R` that cleans names of the columns and saves the data as csv. The cleaned file is named `clean_gujarat_vd.csv`.
+As an example I will be using the Census Village Directory for the state of Gujarat. The file downloaded from the census website is stored in the `Raw data` folder. I have written a small script `cleandata.R` that cleans names of the columns and saves the data as csv. The cleaned file is named `clean_gujarat_vd.csv`.
 
 The definitions and concepts used in the data are provided in the document called [Concepts and Definitions Used In Village Directory (VD) And Town Directory (TD) of District Census Hand Book](https://censusindia.gov.in/2011census/dchb/DCHB%202011-Concepts%20&%20Definitions%20Village%20and%20Town%20Directory.pdf).
 

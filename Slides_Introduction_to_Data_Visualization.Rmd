@@ -18,6 +18,9 @@ name: Module Details
 library(palmerpenguins)
 library(tidyverse)
 library(kableExtra)
+library(xaringanthemer)
+library(xaringanExtra)
+library(flipbookr)
 ```
 
 class: center, middle
@@ -420,18 +423,78 @@ summarise(mutate(gentoo_penguins,
 
 ---
 
+name: Group_by intro slide
+
+class: top, center
+
+# `group_by()`
 
 
+```
+"Use group_by() to create a “grouped” copy of a table.   
+dplyr functions will manipulate each “group” separately   
+and then combine the results."
+```
+
+.right[From the {dplyr} cheat sheet]
+
+<img src = "https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/group_by_ungroup.png", width = 50%>
+
+---
+
+name: example 1 group_by
+
+How to get `species` specific average body mass of the penguins?
+
+```{r example_group_by}
+penguins %>% 
+  group_by(species) %>% #<<
+  summarise(
+    avg_body_mass = 
+      mean(body_mass_g,na.rm = T)
+  )
+```
+
+---
+
+name: intro example 2 group_by
+
+_Po -The Panda_ : Can we group observations by more than one variable?!!
+
+_Master Shifu_ : Well of course!
+
+_Po -The Panda_: Woooww!!! Show meee..
+
+.center[<iframe src="https://giphy.com/embed/1ym5LJ17vp77BL8X5O" width="500" height="300" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/mrw-summer-start-1ym5LJ17vp77BL8X5O">via GIPHY</a></p>]
+
+---
+
+name: example 2 group_by
 
 
+How to get `species` and `sex` specific average body mass of the penguins?
 
 
+```{r example2_group_by}
+penguins %>% 
+  group_by(species,sex) %>% #<<
+  summarise(
+    avg_body_mass = 
+      mean(body_mass_g,na.rm = T)
+  )
+```
 
 
+---
+
+name: intro pivots
+
+class: top,center
+
+# Pivot
+
+<img src="D:/R projects/SNAP Academy R course/Module-Intro-to-data-visualizarion/PivotPicture.jpg", width=75%>
 
 
-
-
-
-
+---
 
