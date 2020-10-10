@@ -5,8 +5,10 @@ author: "Ayush Patel"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    css: ["default","theme.css"]
     lib_dir: libs
     nature:
+      ratio: 16:9
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -18,9 +20,16 @@ background-image: url(https://images.unsplash.com/photo-1474366521946-c3d4b507ab
 background-size: cover
 
 ```{r setup,include=FALSE}
+knitr::opts_chunk$set(fig.width = 6, message = FALSE, warning = FALSE, comment = "")
 library(palmerpenguins)
 library(tidyverse)
+library(flipbookr)
 library(kableExtra)
+library(xaringanExtra) 
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_xaringan_extra(c("tile_view"))
 ```
 
 # Module Details
@@ -41,7 +50,6 @@ GitHub: [https://github.com/AyushBipinPatel](https://github.com/AyushBipinPatel)
 Email: ayush.ap58@gmail.com   
 Website: [https://ayushpatel.netlify.app/](https://ayushpatel.netlify.app/)
 ]
-
 
 ---
 
@@ -106,7 +114,7 @@ class: center,middle
 
 using the {dplyr}
 
-<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/dplyr.png", width = 50%,align = "center">  
+<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/dplyr.png", width = 30%,align = "center">  
 
 image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)
 
@@ -153,7 +161,7 @@ class: top,left
 `filter()` function allows us to subset data based on desired conditionality.
 
 
-<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", align="center">
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", width=70%, align="center">
 
 
 ---
@@ -216,7 +224,7 @@ colnames that might be useful:
   `species`  
   `flipper_length_mm`
   
-<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", width=75%, align="center">
+<img src="https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/dplyr_filter.jpg", width=65%, align="center">
 
 ---
 
@@ -228,7 +236,7 @@ class: top
 
 .center[using `mutate()` funtion]
 
-<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center">
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=55%, align="center">
 
 ---
 
@@ -287,7 +295,7 @@ write a code to create a new column __body_mass_kg__ using the `mutate()`.
 colnames that might be useful:  
   `body_mass_g`
   
-<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=70%, align="center">
+<img src="https://github.com/allisonhorst/stats-illustrations/blob/master/rstats-artwork/dplyr_mutate.png?raw=true", width=50%, align="center">
 
 ---
 
@@ -347,7 +355,7 @@ class: top,middle
 
 #.center[The pipe operator ` %>% `]
 
-.center[<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/pipe.png", width=50%, align="center">]
+.center[<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/pipe.png", width=30%, align="center">]
 
 .center[image source: [RStudio Github Page](https://github.com/rstudio/hex-stickers)]
 
@@ -392,7 +400,7 @@ Less Intermediate Objects
 
 ---
 
-name: comaprision between using pipe and not using pipe
+name: comparison between using pipe and not using pipe
 
 class: top
 
@@ -404,12 +412,14 @@ class: top
 .pull-left[
 ```{r}
 penguins %>% 
-  filter(species == "Gentoo") %>% 
+  filter(species =="Gentoo") %>% 
   mutate(
-    is_fluffy = if_else(body_mass_g>3500,1,0)
+    is_fluffy = if_else(
+      body_mass_g>3500,1,0)
   ) %>% 
   summarise(
-    Number_of_fluffy_Gentoos = sum(is_fluffy,na.rm = T)
+    Number_of_fluffy_Gentoos = 
+      sum(is_fluffy,na.rm = T)
   )
 ```
 
@@ -417,7 +427,8 @@ penguins %>%
 .pull-right[
 ```{r}
 filter(penguins,
-       species == "Gentoo") ->gentoo_penguins
+       species == 
+         "Gentoo") ->gentoo_penguins
 
 summarise(mutate(gentoo_penguins,
        is_fluffy = 
@@ -427,6 +438,35 @@ summarise(mutate(gentoo_penguins,
 ```
 
 ]
+
+---
+
+name: peeping into the pipe
+
+
+```{r flip_pipe, eval=FALSE, include=FALSE,message=FALSE,warning=FALSE}
+penguins %>% #BREAK
+  filter(species == 
+           "Gentoo") %>% #BREAK2
+  mutate(
+    is_fluffy = 
+      if_else(body_mass_g>3500,
+              1,0)
+  ) %>% #BREAK3
+  summarise(
+    Number_of_fluffy_Gentoos = 
+      sum(is_fluffy,na.rm = T),
+    average_flliper_length = 
+      mean(flipper_length_mm, 
+           na.rm = T),
+    average_bill_depth = 
+      mean(bill_depth_mm,
+           na.rm = T)
+  )
+```
+
+
+`r chunk_reveal(chunk_name = "flip_pipe",title = "Peeping into the pipe")`
 
 ---
 
@@ -442,7 +482,6 @@ class: top, center
 dplyr functions will manipulate each “group” separately   
 and then combine the results."
 ```
-
 .right[From the {dplyr} cheat sheet]
 
 <img src = "https://github.com/allisonhorst/stats-illustrations/raw/master/rstats-artwork/group_by_ungroup.png", width = 50%>
@@ -465,6 +504,8 @@ penguins %>%
 ---
 
 name: intro example 2 group_by
+
+class: top,center
 
 _Po -The Panda_ : Can we group observations by more than one variable?!!
 
@@ -497,7 +538,7 @@ class: top,center
 
 # Pivot
 
-<img src="https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/PivotPicture.jpg", width=95%>
+<img src="https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/PivotPicture.jpg", width=65%>
 
 
 .left[Prakhar is a hypothetical person ;)]
@@ -514,7 +555,7 @@ penguins %>%
                values_to = "measured_value_mm")%>% 
                knitr::kable()%>%
                kableExtra::kable_styling()%>%
-               scroll_box(width = "100%", height = "400px")
+               scroll_box(width = "100%", height = "300px")
 
 ```
 
