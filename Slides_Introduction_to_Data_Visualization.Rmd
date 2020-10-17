@@ -662,9 +662,69 @@ background-size: cover
 ---
 name: Thought process
 
-# .center[Thought Process]
+.center[<img src = "https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/concept_map_visualization.jpg", width = 85%>]
 
 ---
+name: ggplot2 and grammar of graphics
+
+# .center[Think Layers]
+
+.pull-right[<img src = "https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/ggplot2.png", width = 50%>]
+
+### Coordinate System
+
+--
+### Geoms or Geometry
+
+--
+### Aesthetics
+
+---
+
+name: example of layers
+
+```{r ex_layers, eval=FALSE, include=FALSE,message=FALSE,warning=FALSE}
+penguins %>% 
+  ggplot()+
+  aes(x= species, 
+      y = body_mass_g)+
+  geom_jitter()+
+  aes(colour = species)+
+  theme(
+    panel.background = element_blank(),
+    panel.grid.major = element_line(colour = "grey"),
+    panel.grid.minor = element_line(colour = "grey")
+  )
+```
+
+
+`r chunk_reveal(chunk_name = "ex_layers",title = "Peeping into the pipe")`
+
+---
+
+name: load census data
+
+# .center[The real deal]
+
+.center[Please copy this code to download the census village directory for Gujarat]
+
+```{r}
+url <- "https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/clean_gujarat_vd.csv"
+
+read_csv(file = url) -> data_census_vd
+
+```
+
+---
+
+name: introduction to geoms
+class:left
+background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_exploratory.png)
+background-size: contain
+# Exploring Geoms
+
+---
+
 
 
 

@@ -4,7 +4,7 @@
     <title>Introduction to Data Visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ayush Patel" />
-    <meta name="date" content="2020-10-17" />
+    <meta name="date" content="2020-10-18" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.3.9000/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.3.9000/tile-view.js"></script>
@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # Introduction to Data Visualization
 ## Using the Census Village Directory Data
 ### Ayush Patel
-### 2020-10-17
+### 2020-10-18
 
 ---
 
@@ -12274,9 +12274,9 @@ summarise(
 
 ```
 # A tibble: 1 x 2
-  average_flipper_len~ avergae_body_mas~
-                 &lt;dbl&gt;             &lt;dbl&gt;
-1                 201.             4202.
+  average_flipper_length avergae_body_mass_g
+                   &lt;dbl&gt;               &lt;dbl&gt;
+1                   201.               4202.
 ```
 
 ---
@@ -12427,23 +12427,19 @@ Peeping into the pipe
 
 ```
 # A tibble: 344 x 8
-   species island bill_length_mm
-   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;
- 1 Adelie  Torge~           39.1
- 2 Adelie  Torge~           39.5
- 3 Adelie  Torge~           40.3
- 4 Adelie  Torge~           NA  
- 5 Adelie  Torge~           36.7
- 6 Adelie  Torge~           39.3
- 7 Adelie  Torge~           38.9
- 8 Adelie  Torge~           39.2
- 9 Adelie  Torge~           34.1
-10 Adelie  Torge~           42  
-# ... with 334 more rows, and 5 more
-#   variables: bill_depth_mm &lt;dbl&gt;,
-#   flipper_length_mm &lt;int&gt;,
-#   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
-#   year &lt;int&gt;
+   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torge~           39.1          18.7              181        3750
+ 2 Adelie  Torge~           39.5          17.4              186        3800
+ 3 Adelie  Torge~           40.3          18                195        3250
+ 4 Adelie  Torge~           NA            NA                 NA          NA
+ 5 Adelie  Torge~           36.7          19.3              193        3450
+ 6 Adelie  Torge~           39.3          20.6              190        3650
+ 7 Adelie  Torge~           38.9          17.8              181        3625
+ 8 Adelie  Torge~           39.2          19.6              195        4675
+ 9 Adelie  Torge~           34.1          18.1              193        3475
+10 Adelie  Torge~           42            20.2              190        4250
+# ... with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
 
@@ -12464,23 +12460,19 @@ penguins %&gt;%
 
 ```
 # A tibble: 124 x 8
-   species island bill_length_mm
-   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;
- 1 Gentoo  Biscoe           46.1
- 2 Gentoo  Biscoe           50  
- 3 Gentoo  Biscoe           48.7
- 4 Gentoo  Biscoe           50  
- 5 Gentoo  Biscoe           47.6
- 6 Gentoo  Biscoe           46.5
- 7 Gentoo  Biscoe           45.4
- 8 Gentoo  Biscoe           46.7
- 9 Gentoo  Biscoe           43.3
-10 Gentoo  Biscoe           46.8
-# ... with 114 more rows, and 5 more
-#   variables: bill_depth_mm &lt;dbl&gt;,
-#   flipper_length_mm &lt;int&gt;,
-#   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
-#   year &lt;int&gt;
+   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+ 1 Gentoo  Biscoe           46.1          13.2              211        4500
+ 2 Gentoo  Biscoe           50            16.3              230        5700
+ 3 Gentoo  Biscoe           48.7          14.1              210        4450
+ 4 Gentoo  Biscoe           50            15.2              218        5700
+ 5 Gentoo  Biscoe           47.6          14.5              215        5400
+ 6 Gentoo  Biscoe           46.5          13.5              210        4550
+ 7 Gentoo  Biscoe           45.4          14.6              211        4800
+ 8 Gentoo  Biscoe           46.7          15.3              219        5200
+ 9 Gentoo  Biscoe           43.3          13.4              209        4400
+10 Gentoo  Biscoe           46.8          15.4              215        5150
+# ... with 114 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
 ```
 ]
 
@@ -12506,23 +12498,20 @@ penguins %&gt;%
 
 ```
 # A tibble: 124 x 9
-   species island bill_length_mm
-   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;
- 1 Gentoo  Biscoe           46.1
- 2 Gentoo  Biscoe           50  
- 3 Gentoo  Biscoe           48.7
- 4 Gentoo  Biscoe           50  
- 5 Gentoo  Biscoe           47.6
- 6 Gentoo  Biscoe           46.5
- 7 Gentoo  Biscoe           45.4
- 8 Gentoo  Biscoe           46.7
- 9 Gentoo  Biscoe           43.3
-10 Gentoo  Biscoe           46.8
-# ... with 114 more rows, and 6 more
-#   variables: bill_depth_mm &lt;dbl&gt;,
-#   flipper_length_mm &lt;int&gt;,
-#   body_mass_g &lt;int&gt;, sex &lt;fct&gt;,
-#   year &lt;int&gt;, is_fluffy &lt;dbl&gt;
+   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+ 1 Gentoo  Biscoe           46.1          13.2              211        4500
+ 2 Gentoo  Biscoe           50            16.3              230        5700
+ 3 Gentoo  Biscoe           48.7          14.1              210        4450
+ 4 Gentoo  Biscoe           50            15.2              218        5700
+ 5 Gentoo  Biscoe           47.6          14.5              215        5400
+ 6 Gentoo  Biscoe           46.5          13.5              210        4550
+ 7 Gentoo  Biscoe           45.4          14.6              211        4800
+ 8 Gentoo  Biscoe           46.7          15.3              219        5200
+ 9 Gentoo  Biscoe           43.3          13.4              209        4400
+10 Gentoo  Biscoe           46.8          15.4              215        5150
+# ... with 114 more rows, and 3 more variables: sex &lt;fct&gt;, year &lt;int&gt;,
+#   is_fluffy &lt;dbl&gt;
 ```
 ]
 
@@ -12558,11 +12547,9 @@ penguins %&gt;%
 
 ```
 # A tibble: 1 x 3
-  Number_of_fluff~ average_flliper~
-             &lt;dbl&gt;            &lt;dbl&gt;
-1              123             217.
-# ... with 1 more variable:
-#   average_bill_depth &lt;dbl&gt;
+  Number_of_fluffy_Gentoos average_flliper_length average_bill_depth
+                     &lt;dbl&gt;                  &lt;dbl&gt;              &lt;dbl&gt;
+1                      123                   217.               15.0
 ```
 ]
 
@@ -22136,7 +22123,209 @@ background-size: cover
 ---
 name: Thought process
 
-# .center[Thought Process]
+.center[&lt;img src = "https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/concept_map_visualization.jpg", width = 85%&gt;]
+
+---
+name: ggplot2 and grammar of graphics
+
+# .center[Think Layers]
+
+.pull-right[&lt;img src = "https://raw.githubusercontent.com/rstudio/hex-stickers/master/thumbs/ggplot2.png", width = 50%&gt;]
+
+### Coordinate System
+
+--
+### Geoms or Geometry
+
+--
+### Aesthetics
+
+---
+
+name: example of layers
+
+
+
+
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+*penguins
+```
+]
+ 
+.panel2-ex_layers-auto[
+
+```
+# A tibble: 344 x 8
+   species island bill_length_mm bill_depth_mm flipper_length_~ body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torge~           39.1          18.7              181        3750
+ 2 Adelie  Torge~           39.5          17.4              186        3800
+ 3 Adelie  Torge~           40.3          18                195        3250
+ 4 Adelie  Torge~           NA            NA                 NA          NA
+ 5 Adelie  Torge~           36.7          19.3              193        3450
+ 6 Adelie  Torge~           39.3          20.6              190        3650
+ 7 Adelie  Torge~           38.9          17.8              181        3625
+ 8 Adelie  Torge~           39.2          19.6              195        4675
+ 9 Adelie  Torge~           34.1          18.1              193        3475
+10 Adelie  Torge~           42            20.2              190        4250
+# ... with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+]
+
+---
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+penguins %&gt;%
+* ggplot()
+```
+]
+ 
+.panel2-ex_layers-auto[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/ex_layers_auto_02_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+penguins %&gt;%
+  ggplot()+
+* aes(x= species,
+*     y = body_mass_g)
+```
+]
+ 
+.panel2-ex_layers-auto[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/ex_layers_auto_03_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+penguins %&gt;%
+  ggplot()+
+  aes(x= species,
+      y = body_mass_g)+
+* geom_jitter()
+```
+]
+ 
+.panel2-ex_layers-auto[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/ex_layers_auto_04_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+penguins %&gt;%
+  ggplot()+
+  aes(x= species,
+      y = body_mass_g)+
+  geom_jitter()+
+* aes(colour = species)
+```
+]
+ 
+.panel2-ex_layers-auto[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/ex_layers_auto_05_output-1.png)&lt;!-- --&gt;
+]
+
+---
+count: false
+ 
+Peeping into the pipe
+.panel1-ex_layers-auto[
+
+```r
+penguins %&gt;%
+  ggplot()+
+  aes(x= species,
+      y = body_mass_g)+
+  geom_jitter()+
+  aes(colour = species)+
+* theme(
+*   panel.background = element_blank(),
+*   panel.grid.major = element_line(colour = "grey"),
+*   panel.grid.minor = element_line(colour = "grey")
+* )
+```
+]
+ 
+.panel2-ex_layers-auto[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/ex_layers_auto_06_output-1.png)&lt;!-- --&gt;
+]
+
+&lt;style&gt;
+.panel1-ex_layers-auto {
+  color: black;
+  width: 38.6060606060606%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel2-ex_layers-auto {
+  color: black;
+  width: 59.3939393939394%;
+  hight: 32%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+.panel3-ex_layers-auto {
+  color: black;
+  width: NA%;
+  hight: 33%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+name: load census data
+
+# .center[The real deal]
+
+.center[Please copy this code to download the census village directory for Gujarat]
+
+
+```r
+url &lt;- "https://raw.githubusercontent.com/AyushBipinPatel/Module-Intro-to-data-visualizarion/master/clean_gujarat_vd.csv"
+
+read_csv(file = url) -&gt; data_census_vd
+```
+
+---
+
+name: introduction to geoms
+class:left
+background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/ggplot2_exploratory.png)
+background-size: contain
+# Exploring Geoms
 
 ---
     </textarea>
