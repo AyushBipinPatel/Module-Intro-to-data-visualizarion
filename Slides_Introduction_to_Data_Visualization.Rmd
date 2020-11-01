@@ -725,9 +725,100 @@ background-size: contain
 
 ---
 
+name: one variable continuous
 
+## Geoms that work with one continuous Variable
 
+### .middle[Density: geom_density]
 
+--
 
+### .middle[Frequency Polygon: geom_freqpoly]
 
+--
 
+### .middle[Histogram: geom_histogram]
+
+---
+
+name: density function
+
+##.center[Density charts]
+
+.pull-left[
+
+```{r density_chart, fig.show='hide'}
+data_census_vd %>% 
+  ggplot()+
+  geom_density(
+    aes(
+      sub_district_head_quarter_distance_in_km)
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+```{r ref.label="density_chart", echo=FALSE}
+
+```
+
+]
+---
+name: freqpoly function
+
+##.center[Frequency polygram charts]
+
+.pull-left[
+
+```{r freq_chart, fig.show='hide'}
+data_census_vd %>% 
+  ggplot()+
+  geom_freqpoly(
+    aes(
+      sub_district_head_quarter_distance_in_km),
+    binwidth = 1.5 #<
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+```{r ref.label="freq_chart", echo=FALSE}
+
+```
+
+]
+---
+
+name: Histogram
+
+##.center[Frequency polygram charts]
+
+.pull-left[
+
+```{r hist_chart, fig.show='hide'}
+data_census_vd %>% 
+  ggplot()+
+  geom_histogram(
+    aes(
+      sub_district_head_quarter_distance_in_km),
+    binwidth = 1.5 #<
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+```{r ref.label="hist_chart", echo=FALSE}
+
+```
+
+]
+---

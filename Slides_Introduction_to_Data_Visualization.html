@@ -4,7 +4,7 @@
     <title>Introduction to Data Visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="Ayush Patel" />
-    <meta name="date" content="2020-10-18" />
+    <meta name="date" content="2020-11-01" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.3.9000/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view-0.2.3.9000/tile-view.js"></script>
@@ -19,7 +19,7 @@ class: center, middle, inverse, title-slide
 # Introduction to Data Visualization
 ## Using the Census Village Directory Data
 ### Ayush Patel
-### 2020-10-18
+### 2020-11-01
 
 ---
 
@@ -22327,6 +22327,101 @@ background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illus
 background-size: contain
 # Exploring Geoms
 
+---
+
+name: one variable continuous
+
+## Geoms that work with one continuous Variable
+
+### .middle[Density: geom_density]
+
+--
+
+### .middle[Frequency Polygon: geom_freqpoly]
+
+--
+
+### .middle[Histogram: geom_histogram]
+
+---
+
+name: density function
+
+##.center[Density charts]
+
+.pull-left[
+
+
+```r
+data_census_vd %&gt;% 
+  ggplot()+
+  geom_density(
+    aes(
+      sub_district_head_quarter_distance_in_km)
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
+
+]
+---
+name: freqpoly function
+
+##.center[Frequency polygram charts]
+
+.pull-left[
+
+
+```r
+data_census_vd %&gt;% 
+  ggplot()+
+  geom_freqpoly(
+    aes(
+      sub_district_head_quarter_distance_in_km),
+    binwidth = 1.5 #&lt;
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
+
+]
+---
+
+name: Histogram
+
+##.center[Frequency polygram charts]
+
+.pull-left[
+
+
+```r
+data_census_vd %&gt;% 
+  ggplot()+
+  geom_histogram(
+    aes(
+      sub_district_head_quarter_distance_in_km),
+    binwidth = 1.5 #&lt;
+    )+
+  labs(x = "Distance from head quarters in Km",
+       title = "How far is too far?")
+```
+
+]
+
+.pull-right[
+![](Slides_Introduction_to_Data_Visualization_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+
+]
 ---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
