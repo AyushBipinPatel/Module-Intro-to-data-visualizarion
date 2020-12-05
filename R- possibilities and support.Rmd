@@ -1,0 +1,98 @@
+---
+title: "R: Where to get Support"
+subtitle: "R Community Support"
+author: "Ayush Patel"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    css: ["default","theme.css"]
+    lib_dir: libs
+    nature:
+      ratio: 16:9
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+name: Instructor Introduction
+background-image: url(https://images.unsplash.com/photo-1531592937781-344ad608fabf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80)
+background-size: cover
+
+class: middle
+
+# .center[Ayush Patel]
+.center[
+GitHub: [https://github.com/AyushBipinPatel](https://github.com/AyushBipinPatel)   
+Email: ayush.ap58@gmail.com   
+Website: [https://ayushpatel.netlify.app/](https://ayushpatel.netlify.app/)
+]
+
+---
+
+name: motivation to learn
+class: middle, center
+
+# .top[Why Learn R]
+
+--
+### It is open source.
+
+--
+### Free
+
+--
+### Wide range of implementation across fields.
+
+--
+### Plays well with other languages.
+
+--
+### Allows for scale-able solution.
+
+--
+### Not just for Statistical computing.
+
+--
+### Excellent workflow for data analysis and research
+
+---
+name: Getting better
+background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/r_first_then.png)
+background-size: contain
+.top[
+## What does it take?
+
+###1. Resources 
+
+###2. Support
+]
+
+.bottom[art by: Allison Horst]
+---
+
+name: important resources
+
+# .center[Resources and Support]
+
+--
+
+### The book: [R for Data Science](https://r4ds.had.co.nz/)
+--
+
+### Slack Channel of [R4Ds](https://t.co/HIWwvhm6Eh?amp=1)
+--
+
+### [RStudio Community](https://community.rstudio.com/)
+--
+
+### Stack Overflow
+--
+
+### twitter: #rstats
+
+---
+
+background-image: url(https://raw.githubusercontent.com/allisonhorst/stats-illustrations/master/rstats-artwork/monster_support.jpg)
+background-size: contain
+
+---
+

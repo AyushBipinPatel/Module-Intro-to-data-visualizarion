@@ -16,6 +16,7 @@ Learners are expected to know basic use of R and elementary tidyverse techniques
 
 Learners are expected to know basic statistics (summary statistics and correlation).
 
+For those who are new to R, check out these [slides](/R--possibilities-and-support.html) to understand possibilities in R and support from R Community.
 
 ### Module Outline
 
